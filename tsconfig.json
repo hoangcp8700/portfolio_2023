@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    /* ----------------- Basic Options ---------------*/
+    // Language and Environment Configuration
+    "target": "ES2022",
+    "jsx": "react",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    // Modules Configuration
+    "module": "ES2022",
+
+    "sourceMap": true, // /* Generates corresponding '.map' file. */
+    "noEmit": true,
+    "removeComments": true,
+    "isolatedModules": true, // Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+
+    // JavaScript Support Configuration
+    "allowJs": true /* Allow JavaScript files to be compiled. */,
+    "checkJs": true /* Report errors in .js files. */,
+    /* ----------------- ----------------------- ---------------*/
+
+    /* Additional Checks */
+    "noUnusedLocals": true /* Report errors on unused locals. */,
+    "noUnusedParameters": true /* Report errors on unused parameters. */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic'*/,
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "paths": {
+      "@*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["./node_modules/**/*"]
+}

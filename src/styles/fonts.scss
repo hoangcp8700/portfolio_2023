@@ -1,0 +1,161 @@
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: bold;
+  src:
+    url('#{$font-path}NeueKabel-BoldItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url('#{$font-path}NeueKabel-Bold.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: 200;
+  src:
+    url('#{$font-path}NeueKabel-ExtraLight.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-ExtraLight.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: 900;
+  src:
+    url('#{$font-path}NeueKabel-Black.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Black.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: 900;
+  src:
+    url('#{$font-path}NeueKabel-BlackItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-BlackItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url('#{$font-path}NeueKabel-ExtraBold.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: 100;
+  src:
+    url('#{$font-path}NeueKabel-ThinItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-ThinItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('#{$font-path}NeueKabel-Regular.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: 300;
+  src:
+    url('#{$font-path}NeueKabel-Light.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Light.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: 100;
+  src:
+    url('#{$font-path}NeueKabel-Thin.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: 300;
+  src:
+    url('#{$font-path}NeueKabel-LightItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: normal;
+  font-weight: 500;
+  src:
+    url('#{$font-path}NeueKabel-Medium.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: 200;
+  src:
+    url('#{$font-path}NeueKabel-ExtraLightItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-ExtraLightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: 500;
+  src:
+    url('#{$font-path}NeueKabel-MediumItalic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-MediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-neue-kabel;
+  font-style: italic;
+  font-weight: normal;
+  src:
+    url('#{$font-path}NeueKabel-Italic.woff2') format('woff2'),
+    url('#{$font-path}NeueKabel-Italic.woff') format('woff');
+}
+
+// examples
+
+// @font-face {
+//   font-family: $font-gilroy;
+//   src: url("#{$font-gilroy-path}-Extrabold.woff2") format("woff2"),
+//     url("#{$font-gilroy-path}-Extrabold.woff") format("woff"),
+//     url("#{$font-gilroy-path}-Extrabold.ttf") format("truetype");
+//   font-weight: 800;
+//   font-style: normal;
+//   font-display: swap;
+// }

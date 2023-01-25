@@ -1,0 +1,28 @@
+$themes: (
+  primary: (
+    darkMode: $black,
+    lightMode: $white,
+  ),
+  text: (
+    darkMode: $white,
+    lightMode: $black,
+  ),
+);
+
+@mixin theme-mode($mode) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop == $mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+body:is(.darkMode) {
+  @include theme-mode('darkMode');
+}
+
+body:not(.darkMode) {
+  @include theme-mode('lightMode');
+}

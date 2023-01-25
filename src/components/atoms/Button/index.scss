@@ -1,0 +1,10 @@
+.a-button {
+  // @include adjust-flex();
+  background: #ff92;
+  background-image: url('~assets/images/male-kid.png');
+
+  // test
+  &-background {
+    background-image: url('~assets/icons/ic_search.svg');
+  }
+}

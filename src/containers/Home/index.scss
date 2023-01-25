@@ -1,0 +1,13 @@
+.t-home {
+  background-color: #dad2;
+  background-image: url('@assets/icons/ic_search.svg');
+  background-repeat: no-repeat;
+  padding: 100px;
+
+  &_json {
+    background-color: #f29;
+    background-image: url('@assets/icons/ic_close.svg');
+    background-repeat: no-repeat;
+    padding: 100px;
+  }
+}
