@@ -25,7 +25,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <>
-      <h1>hello</h1>
+      <h1>layout storybook</h1>
       <Story />
     </>
   ),

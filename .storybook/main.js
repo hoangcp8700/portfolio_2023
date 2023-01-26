@@ -1,6 +1,13 @@
 const path = require('path');
 const { default: TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
-
+// {
+//       name: '@storybook/addon-postcss',
+//       options: {
+//         postcssLoaderOptions: {
+//           implementation: require('postcss'),
+//         },
+//       },
+//     },
 module.exports = {
   stories: ['../src/**/*.stories.@(tsx|mdx)'],
   addons: [
@@ -85,8 +92,8 @@ module.exports = {
 
     // config style loader
     config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      test: /\.((c|s[ac])ss)$/i,
+      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../src'),
     });
 
