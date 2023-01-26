@@ -20,6 +20,7 @@ const spacing = {
 
 const colors = {
   transparent: 'transparent',
+  current: 'currentColor',
   black: '#000',
   white: '#fff',
   light: '#F6F6F9',
@@ -64,18 +65,18 @@ const colors = {
   },
 };
 
-const isDev = process.env.NODE_ENV !== 'development';
+// const isDev = process.env.NODE_ENV !== 'development';
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    // enabled: true,
-    enabled: isDev,
-    content: ['./src/components/**/*.{ts,tsx}', './src/containers/**/*.{ts,tsx}', './dist/index.html'],
-    options: {
-      safelist: ['dark'], // specific classes
-    },
-  },
+  // purge: {
+  //   // enabled: true,
+  //   enabled: isDev,
+  //   content: ['./src/components/**/*.{ts,tsx}', './src/containers/**/*.{ts,tsx}', './dist/index.html'],
+  //   options: {
+  //     safelist: ['dark'], // specific classes
+  //   },
+  // },
+  content: ['./src/components/**/*.{ts,tsx}', './src/containers/**/*.{ts,tsx}', './dist/index.html'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -146,9 +147,6 @@ module.exports = {
         },
       },
     },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [
     require('@tailwindcss/typography'),

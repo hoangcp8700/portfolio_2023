@@ -1,11 +1,9 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // -----------------------------------------------
-const BundleAnalyzer = (isAnalyzer) => {
-  const config = {
-    ...(!isAnalyzer && { analyzerMode: 'disabled', generateStatsFile: true }),
-    statsOptions: { source: false },
-  };
-  return new BundleAnalyzerPlugin(config);
+const config = {
+  generateStatsFile: true,
+  statsOptions: { source: false },
 };
-module.exports = BundleAnalyzer;
+
+module.exports = new BundleAnalyzerPlugin(config);

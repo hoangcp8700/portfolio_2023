@@ -3,17 +3,16 @@ const CONFIGS = require('./configs');
 const PLUGINS = require('./plugins');
 const webpack = require('webpack');
 
-// ----------------------------------------------------
+// -------------------BETA---------------------------------
 //  entry: glob.sync('./src/components/**/*.js').reduce((acc, path) => {
 //       const entry = path.replace(/^.*[\\\/]/, '').replace('.js', '');
 //       acc[entry] = path;
 //       return acc;
 //   }, {}),
+
 module.exports = (envVars) => {
-  const { ANALYZER } = envVars;
-  if (ANALYZER) {
-    module.exports.plugins.push(PLUGINS.pluginBundleAnalyzer(ANALYZER));
-  }
+  // const { ANALYZER } = envVars;
+
   return {
     entry: {
       app: CONSTANTS.PATHS.appIndexJs,
@@ -31,6 +30,9 @@ module.exports = (envVars) => {
       PLUGINS.pluginCopy,
       PLUGINS.pluginDotenv,
       PLUGINS.pluginEslint,
+      // uncomment to start analyzer
+      // disabled this plugin to HMR working
+      // PLUGINS.pluginBundleAnalyzer,
 
       // working in dev
       new webpack.DefinePlugin({
