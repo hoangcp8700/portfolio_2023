@@ -12,6 +12,7 @@ const styleLoader = (loader) => ({
         // modules: true, *.module.css
       },
     },
+    'postcss-loader',
     {
       loader: 'sass-loader',
       options: { sourceMap: true },

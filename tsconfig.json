@@ -25,6 +25,7 @@
     "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
     "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "skipLibCheck": true,
 
     /* Strict Type-Checking Options */
     "strict": true,

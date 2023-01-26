@@ -17,11 +17,11 @@ const HomeContainer: React.FC = () => {
   return (
     <div className='t-home'>
       <img src={testImage} alt='123' />
-      <h1>Hello React - - - - -{count} </h1>
-      <div>text: {hello.toString()}</div>
+      <h1 className='text-red-800'>Hello React3 123 123123- - - - -{count} </h1>
+      <div className='bg-black/50'>text 123: {hello.toString()}</div>
       <hr />
       <div className='t-home-icon'>
-        icon:
+        icon123
         <ArrowIcon />
       </div>
       --------------------------

@@ -1,8 +1,6 @@
-@import 'styles';
 
-// @import 'components/common/*/index.scss';
-// @import 'components/atoms/*/index.scss';
-// @import 'components/molecules/*/index.scss';
-// @import 'components/organisms/*/index.scss';
-// @import 'components/templates/*/index.scss';
-// @import 'pages/*/index.scss';
+@import './styles';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

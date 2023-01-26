@@ -4,10 +4,16 @@ const PLUGINS = require('./plugins');
 const webpack = require('webpack');
 
 // ----------------------------------------------------
-
+//  entry: glob.sync('./src/components/**/*.js').reduce((acc, path) => {
+//       const entry = path.replace(/^.*[\\\/]/, '').replace('.js', '');
+//       acc[entry] = path;
+//       return acc;
+//   }, {}),
 module.exports = (envVars) => {
   const { ANALYZER } = envVars;
-
+  if (ANALYZER) {
+    module.exports.plugins.push(PLUGINS.pluginBundleAnalyzer(ANALYZER));
+  }
   return {
     entry: {
       app: CONSTANTS.PATHS.appIndexJs,
@@ -25,7 +31,6 @@ module.exports = (envVars) => {
       PLUGINS.pluginCopy,
       PLUGINS.pluginDotenv,
       PLUGINS.pluginEslint,
-      PLUGINS.pluginBundleAnalyzer(ANALYZER),
 
       // working in dev
       new webpack.DefinePlugin({
