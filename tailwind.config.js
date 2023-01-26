@@ -182,6 +182,11 @@ module.exports = {
       addVariant('not-last', '&:not(:last-child)');
       addVariant('not-first', '&:not(:first-child)');
       addVariant('not-disabled', '&:not(:disabled)');
+      addVariant(
+        'reset-input',
+        'outline-none border-transparent focus:border-transparent focus:outline-none focus:ring-0 appearance-none',
+      );
+      addVariant('reset-button', 'border-none outline-none border-transparent focus:outline-none appearance-none');
     }),
   ],
 };

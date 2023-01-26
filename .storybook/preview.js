@@ -26,7 +26,9 @@ export const decorators = [
   (Story) => (
     <>
       <h1>layout storybook</h1>
-      <Story />
+      <div style={{ margin: 20 }}>
+        <Story />
+      </div>
     </>
   ),
 ];
