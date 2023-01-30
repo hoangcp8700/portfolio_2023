@@ -1,6 +1,7 @@
 // import '../src/index.css'; css global
 import { viewports } from './utils/viewports';
 import React from 'react';
+import Layout from '../src/components/templates/Layout';
 
 if (typeof jest === 'undefined') {
   // NOTES: Resolve storybook static file after built
@@ -25,7 +26,9 @@ export const decorators = [
   (Story) => (
     <div style={{ backgroundColor: '#d2d3c3' }}>
       {/* <h1>layout storybook</h1> */}
-      <Story />
+      <Layout>
+        <Story />
+      </Layout>
     </div>
   ),
 ];

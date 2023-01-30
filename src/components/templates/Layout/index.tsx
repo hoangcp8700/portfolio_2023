@@ -6,9 +6,9 @@ interface LayoutProps {
 }
 
 const LineBackground: React.FC<{ className?: string }> = ({ className }) => (
-  <div className={clsx('h-full fixed top-0 flex', className)}>
+  <div className={clsx('h-full fixed top-0 flex z-0', className)}>
     {new Array(12).fill(true).map((_, idx) => (
-      <div className='w-[0.25px] h-full bg-white rounded-1 ml-3' key={`line-${idx.toString()}`} />
+      <div className='w-[0.25px] h-full bg-white rounded-1 ml-4' key={`line-${idx.toString()}`} />
     ))}
   </div>
 );
