@@ -7,9 +7,9 @@
 }
 
 @font-face {
-  font-family: 'Austin Cyr Roman';
+  font-family: 'Austin';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   src: url('#{$font-path}AustinCyr-Roman.eot');
   src: 
     url('#{$font-path}AustinCyr-Roman.eot?#iefix') format('embedded-opentype'),
@@ -21,7 +21,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Austin Italic';
+  font-family: 'Austin';
   font-style: italic;
   font-weight: normal;
   src: url('#{$font-path}AustinItalic.ttf') format('ttf');
@@ -51,7 +51,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Light';
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 300;
   src: url('#{$font-path}/Satoshi-Light.woff2') format('woff2'),
@@ -62,7 +62,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-LightItalic';
+  font-family: 'Satoshi';
   font-style: italic;
   font-weight: 300;
   src: url('#{$font-path}/Satoshi-LightItalic.woff2') format('woff2'),
@@ -73,7 +73,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Regular';
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 400;
   src: url('#{$font-path}/Satoshi-Regular.woff2') format('woff2'),
@@ -84,7 +84,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Italic';
+  font-family: 'Satoshi';
   font-style: italic;
   font-weight: 400;
   src: url('#{$font-path}/Satoshi-Italic.woff2') format('woff2'),
@@ -95,7 +95,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Medium';
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 500;
   src: url('#{$font-path}/Satoshi-Medium.woff2') format('woff2'),
@@ -106,7 +106,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-MediumItalic';
+  font-family: 'Satoshi';
   font-style: italic;
   font-weight: 500;
   src: url('#{$font-path}/Satoshi-MediumItalic.woff2') format('woff2'),
@@ -117,7 +117,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Bold';
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 700;
   src: url('#{$font-path}/Satoshi-Bold.woff2') format('woff2'),
@@ -128,7 +128,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-BoldItalic';
+  font-family: 'Satoshi';
   font-style: italic;
   font-weight: 700;
   src: url('#{$font-path}/Satoshi-BoldItalic.woff2') format('woff2'),
@@ -139,7 +139,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-Black';
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 900;
   src: url('#{$font-path}/Satoshi-Black.woff2') format('woff2'),
@@ -150,7 +150,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Satoshi-BlackItalic';
+  font-family: 'Satoshi';
   font-style: italic;
   font-weight: 900;
   src: url('#{$font-path}/Satoshi-BlackItalic.woff2') format('woff2'),
