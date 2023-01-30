@@ -41,7 +41,7 @@
     "gen:page": "hygen pages new",
     "gen:container": "hygen containers new",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 ./public",
     "build-storybook": "build-storybook",
     "clean": "rm -rf dist/*"
   },

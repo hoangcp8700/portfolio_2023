@@ -11,7 +11,6 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
     viewports,
-    defaultViewport: 'DesktopBig',
   },
   controls: {
     matchers: {
@@ -24,11 +23,9 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <>
-      <h1>layout storybook</h1>
-      <div style={{ margin: 20 }}>
-        <Story />
-      </div>
-    </>
+    <div style={{ backgroundColor: '#d2d3c3' }}>
+      {/* <h1>layout storybook</h1> */}
+      <Story />
+    </div>
   ),
 ];

@@ -82,7 +82,8 @@ module.exports = {
     extend: {
       spacing,
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        roboto: ['Roboto', ...fontFamily.sans],
+        austin: ['Austin', ...fontFamily.sans],
       },
       screens,
       colors,

@@ -16,6 +16,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-viewport',
   ],
+  staticDirs: ['../public'],
   framework: '@storybook/react',
   features: {
     babelModeV7: true,

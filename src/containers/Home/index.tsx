@@ -7,7 +7,7 @@ import ArrowIcon from '@assets/icons/ic_arrow_up.svg?r';
 import errorDummy from '@assets/dataDummy/error.json';
 import hello from '@assets/dataDummy/test.txt';
 import './index.scss';
-import './index.css';
+// import './index.css';
 import Icon from '@components/atoms/Icon';
 
 const HomeContainer: React.FC = () => {
