@@ -16,7 +16,7 @@ const LineBackground: React.FC<{ className?: string }> = ({ className }) => (
 const Layout: React.FC<LayoutProps> = ({ children }) => (
   <div>
     <LineBackground className='left-0' />
-    <main>{children}</main>
+    <main className='relative z-1'>{children}</main>
     <LineBackground className='right-0' />
   </div>
 );

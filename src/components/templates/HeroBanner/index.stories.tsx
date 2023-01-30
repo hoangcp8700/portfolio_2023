@@ -15,5 +15,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: 'Hoang',
   title2: 'Cong Phan',
-  description: 'desc Hoang Cong phan',
+  description: 'desc Hoang Cong phan  is an opportunity to problem ',
 };
