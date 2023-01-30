@@ -90,6 +90,27 @@ module.exports = {
         skeleton:
           'linear-gradient(90deg,rgba(190, 190, 190, 0.2) 25%, rgba(129, 129, 129, 0.24) 37%,  rgba(190, 190, 190, 0.2) 63%)',
       },
+      aspectRatio: {
+        auto: 'auto',
+        square: '1 / 1',
+        video: '16 / 9',
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
+        11: '11',
+        12: '12',
+        13: '13',
+        14: '14',
+        15: '15',
+        16: '16',
+      },
 
       typography: (theme) => ({
         DEFAULT: {
@@ -152,6 +173,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'), // use to truncate text to a fixed number of lines.
+    require('@tailwindcss/aspect-ratio'),
     plugin(({ matchUtilities, addUtilities, addBase, theme, addVariant, e }) => {
       // registering new base styles
       addBase({
@@ -175,6 +197,20 @@ module.exports = {
           'align-items': 'center',
         },
       });
+      addUtilities({
+        '.reset-input': {
+          'border-color': 'transparent',
+          outline: 'none',
+          appearance: 'none',
+        },
+      });
+      addUtilities({
+        '.reset-button': {
+          border: 'none',
+          outline: 'none',
+          appearance: 'none',
+        },
+      });
 
       // registering custom variants
       addVariant('hocus', ['&:hover', '&:focus']);
@@ -182,11 +218,11 @@ module.exports = {
       addVariant('not-last', '&:not(:last-child)');
       addVariant('not-first', '&:not(:first-child)');
       addVariant('not-disabled', '&:not(:disabled)');
-      addVariant(
-        'reset-input',
-        'outline-none border-transparent focus:border-transparent focus:outline-none focus:ring-0 appearance-none',
-      );
-      addVariant('reset-button', 'border-none outline-none border-transparent focus:outline-none appearance-none');
+      // addVariant(
+      //   'reset-input',
+      //   'outline-none border-transparent focus:border-transparent focus:outline-none focus:ring-0 appearance-none',
+      // );
+      // addVariant('reset-button', 'border-none outline-none border-transparent focus:outline-none appearance-none');
     }),
   ],
 };
