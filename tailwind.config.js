@@ -82,8 +82,9 @@ module.exports = {
     extend: {
       spacing,
       fontFamily: {
-        roboto: ['Roboto', ...fontFamily.sans],
+        satoshi: ['Satoshi', ...fontFamily.sans],
         austin: ['Austin', ...fontFamily.sans],
+        austinRoman: ['Austin Cyr Roman', ...fontFamily.sans],
       },
       screens,
       colors,

@@ -9,6 +9,7 @@ import hello from '@assets/dataDummy/test.txt';
 import './index.scss';
 // import './index.css';
 import Icon from '@components/atoms/Icon';
+import Introduce from '@components/templates/Introduce';
 
 const HomeContainer: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ const HomeContainer: React.FC = () => {
   // console.log('ArrowIcon', ArrowIcon);
   return (
     <div className='t-home'>
+      <Introduce />
       <img src={testImage} alt='123' />
       <h1 className='text-red-800'>Hello React3 123 123123- - - - -{count} </h1>
       <div className='bg-black/50'>text 123: {hello.toString()}</div>
