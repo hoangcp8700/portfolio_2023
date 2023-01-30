@@ -91,6 +91,9 @@ module.exports = {
         skeleton:
           'linear-gradient(90deg,rgba(190, 190, 190, 0.2) 25%, rgba(129, 129, 129, 0.24) 37%,  rgba(190, 190, 190, 0.2) 63%)',
       },
+      transitionDuration: {
+        2000: '2000ms',
+      },
       aspectRatio: {
         auto: 'auto',
         square: '1 / 1',
