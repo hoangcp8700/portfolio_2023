@@ -68,7 +68,8 @@
         "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-empty-interface": "off",
-        "@typescript-eslint/indent": "off"
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/no-unused-expressions": "warn"
       }
     }
   ],

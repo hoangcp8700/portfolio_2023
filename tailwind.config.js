@@ -155,6 +155,7 @@ module.exports = {
       animation: {
         'spinner-loading': 'spinnerLoading 1.25s infinite backwards',
         skeleton: 'skeleton 1.4s ease infinite',
+        tick: 'tick 300ms ease-in-out',
       },
       keyframes: {
         tick: {
