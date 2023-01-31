@@ -9,6 +9,11 @@ const VALIDATE_SCHEMA = {
       last_name: yup.string().required('last name error!'),
     }),
   },
+  CONTACT: yup.object().shape({
+    name: yup.string().required(),
+    email: yup.string().required(),
+    content: yup.string(),
+  }),
 };
 
 export default VALIDATE_SCHEMA;

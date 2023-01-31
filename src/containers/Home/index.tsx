@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from '@components/atoms/Button';
-import Input from '@components/atoms/Input';
 import maleKidImg from '@assets/images/male-kid.png';
 import testImage from '@assets/images/test.jpg';
 import ArrowIcon from '@assets/icons/ic_arrow_up.svg?r';
@@ -34,7 +33,6 @@ const HomeContainer: React.FC = () => {
         Click
       </button>
       <div className='t-home_json'>json :{JSON.stringify(errorDummy)}</div>
-      <Input />
       <img src={maleKidImg} alt='test' />
       <p>{process.env.REACT_APP_IDENTITY_CLIENT_ID}</p>
     </div>

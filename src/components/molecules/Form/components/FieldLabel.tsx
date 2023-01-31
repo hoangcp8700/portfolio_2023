@@ -12,7 +12,7 @@ export interface FieldLabelProps {
 const FieldLabel: React.FC<FieldLabelProps> = ({ label, className, name, required, children }): JSX.Element => (
   <div className={clsx('m-fieldLabel', className)}>
     <label htmlFor={name}>{children || <span>{label}</span>}</label>
-    {label && required && <span className='a-input_label-required'>*</span>}
+    {label && required && <span className='text-red-600 ml-1'>*</span>}
   </div>
 );
 

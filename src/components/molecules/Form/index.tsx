@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { withProperties } from '@utils/component';
 import React, { forwardRef, useEffect, useId } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { FormProvider } from 'react-hook-form';
 import { useFormDirtyContext } from '@context/DirtyFormContext';
 import useHasChanged from '@hooks/useHashChanged';
+import Input, { InputProps } from '@components/atoms/Input';
+import clsx from 'clsx';
 
 import ErrorMessage from './components/ErrorMessage';
 import FieldError from './components/FieldError';
@@ -14,15 +15,10 @@ import FieldSubmit from './components/FieldSubmit';
 import { FormProviderProps } from './types';
 
 const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProviderProps> = (
-  { children, validateSchema, defaultValues, mode = 'onSubmit', resetAfterSave = true, onSubmit, className },
+  { children, methods, resetAfterSave = true, onSubmit, className },
   ref,
 ) => {
-  const formHandlers = useForm({
-    mode,
-    ...(validateSchema && { resolver: yupResolver(validateSchema) }),
-    defaultValues,
-  });
-  const { reset: formReset, formState, handleSubmit: formHandleSubmit } = formHandlers;
+  const { reset: formReset, formState, handleSubmit: formHandleSubmit } = methods;
   const { isLoading, isSubmitted } = formState;
 
   const formID = useId();
@@ -30,41 +26,36 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
   // read dirty form context
   const { forms, setForms } = useFormDirtyContext();
 
-  const dirtyChanged = useHasChanged([formHandlers.formState.isDirty]);
-  const isSubmittingChanged = useHasChanged([formHandlers.formState.isSubmitting]);
+  const dirtyChanged = useHasChanged([methods.formState.isDirty]);
+  const isSubmittingChanged = useHasChanged([methods.formState.isSubmitting]);
 
   // RESET FORM
   useEffect(() => {
-    if (resetAfterSave && defaultValues && isSubmitted && !isLoading) {
-      formReset(defaultValues);
+    if (resetAfterSave && formState.defaultValues && isSubmitted && !isLoading) {
+      formReset(formState.defaultValues);
     }
-  }, [resetAfterSave, formReset, isLoading, isSubmitted, defaultValues]);
+  }, [resetAfterSave, formReset, isLoading, isSubmitted, formState.defaultValues]);
 
   const onSubmitForm = React.useCallback(
     async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-      // this part is for stopping parent forms to trigger their submit
-      if (event) {
-        // sometimes not true, e.g. React Native
-        if (typeof event.preventDefault === 'function') {
-          event.preventDefault();
-        }
-        if (typeof event.stopPropagation === 'function') {
-          // prevent any outer forms from receiving the event too
-          event.stopPropagation();
-        }
+      event.preventDefault();
+
+      if (typeof event.stopPropagation === 'function') {
+        // prevent any outer forms from receiving the event too
+        event.stopPropagation();
       }
 
       return formHandleSubmit(async (values) => {
         try {
           if (onSubmit) {
-            await onSubmit(values, defaultValues, formState, formHandlers);
+            await onSubmit(values, formState.defaultValues, formState, methods);
           }
         } catch (error) {
           console.error('Submit Form Error:', error);
         }
       })(event);
     },
-    [defaultValues, formHandleSubmit, formHandlers, formState, onSubmit],
+    [formHandleSubmit, onSubmit, formState, methods],
   );
   // update dirty form context when dirty state changes
   useEffect(() => {
@@ -72,11 +63,11 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
     setForms({
       ...forms,
       [formID]: {
-        dirty: formHandlers.formState.isDirty,
-        isSubmitting: formHandlers.formState.isSubmitting,
+        dirty: methods.formState.isDirty,
+        isSubmitting: methods.formState.isSubmitting,
         onSubmit: onSubmitForm,
-        reset: formHandlers.reset,
-        triggerValidation: formHandlers.trigger,
+        reset: methods.reset,
+        triggerValidation: methods.trigger,
       },
     });
   }, [
@@ -84,12 +75,12 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
     dirtyChanged,
     isSubmittingChanged,
     forms,
-    formHandlers.formState.isDirty,
-    formHandlers.formState.isSubmitting,
-    formHandlers.reset,
-    formHandlers.trigger,
     setForms,
     onSubmitForm,
+    methods.formState.isDirty,
+    methods.formState.isSubmitting,
+    methods.reset,
+    methods.trigger,
   ]);
 
   useEffect(
@@ -104,7 +95,7 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
   );
 
   return (
-    <FormProvider {...formHandlers}>
+    <FormProvider {...methods}>
       <form className={className} id={formID} ref={ref} onSubmit={onSubmitForm}>
         {children}
       </form>
@@ -114,10 +105,32 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
 
 const Form = forwardRef(FormProviderRef);
 
+export const InputForm: React.FC<InputFormProps> = ({ label, className, name, required, inputProps }): JSX.Element => (
+  <FormControl
+    name={name}
+    className={clsx('mb-2', className)}
+    render={({ field }) => (
+      <>
+        <FieldLabel name={name} label={label} required={required} />
+        <Input {...field} {...inputProps} id={name} />
+      </>
+    )}
+  />
+);
+
 export default withProperties(Form, {
   FieldError,
   FieldLabel,
   ErrorMessage,
   FormControl,
   FieldSubmit,
+  InputForm,
 });
+
+export interface InputFormProps {
+  label?: string;
+  name: string;
+  required?: boolean;
+  className?: string;
+  inputProps?: InputProps;
+}

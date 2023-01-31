@@ -1,3 +1,4 @@
+import Typography from '@components/atoms/Typography';
 import { ErrorMessage } from '@hookform/error-message';
 import React from 'react';
 import { useFormContext, Message } from 'react-hook-form';
@@ -8,7 +9,11 @@ export interface FieldErrorProps {
   message?: Message;
 }
 
-const FieldError: React.FC<FieldErrorProps> = ({ name, component = <p />, message }) => {
+const FieldError: React.FC<FieldErrorProps> = ({
+  name,
+  component = <Typography type='p' className='sm:text-lg text-md text-red-600' />,
+  message,
+}) => {
   const {
     formState: { errors },
   } = useFormContext();
