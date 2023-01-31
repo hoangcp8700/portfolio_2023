@@ -12,7 +12,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 const Button: React.FC<ButtonProps> = ({
   type,
   size,
-  variants = 'outlined',
+  variants,
   children,
   disabled,
   fullWidth,
@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
       case 'secondary':
         return 'bg-red-500 hocus:bg-red-700  active:bg-red-800';
       case 'outlined':
-        return 'border border-gray-200';
+        return 'border border-gray-200 shadow-lg';
       case 'contained':
         return 'bg-gray-200 rounded-sm';
       default:
@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type || 'button'}
       className={clsx(
-        'reset-button relative flex adjust-flex-center overflow-hidden transition-all px-5 sm:px-8 rounded-xl shadow-lg focus:ring-0',
+        'reset-button relative flex adjust-flex-center overflow-hidden transition-all px-5 sm:px-8 rounded-xl  focus:ring-0',
         animate && 'animate-tick',
         variantStyle,
         sizeStyle,
@@ -63,7 +63,8 @@ const Button: React.FC<ButtonProps> = ({
         className,
       )}
       onClick={(e) => {
-        setAnimate(!animate);
+        setAnimate(true);
+        setTimeout(() => setAnimate(false), 300);
         onClick && onClick(e);
       }}
       disabled={disabled}
@@ -73,5 +74,15 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export const ButtonDot: React.FC<ButtonProps> = ({ ...props }) => (
+  <div
+    className={
+      'relative w-fit hover:delay-1000 hover:text-white hover:before:left-[50%] hover:before:rotate-180 hover:after:delay-1000 hover:after:scale-150 before-after:content-[""] before-after:absolute before-after:rounded-full before-after:bg-blue-800  before-after:z-0 before:translate-y-[-75%] before:w-2 before:h-2 before-after:top-[50%] before:ease-in-out before:duration-1000 before:shadow-lg before:left-0  after:w-10 after:h-10 after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] after:scale-0 after:ease-in after:duration-300'
+    }
+  >
+    <Button {...props} />
+  </div>
+);
 
 export default Button;

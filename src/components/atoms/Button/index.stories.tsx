@@ -28,7 +28,7 @@ export default {
     variants: {
       control: {
         type: 'select',
-        options: ['default', 'primary', 'secondary', 'outlined', 'contained'],
+        options: ['default', 'primary', 'secondary', 'outlined', 'contained', 'dot'],
       },
       defaultValue: 'outlined',
     },
