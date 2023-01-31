@@ -1,3 +1,4 @@
+import { ButtonDot } from '@components/atoms/Button';
 import Typography from '@components/atoms/Typography';
 import Container from '@components/common/Container';
 import TagTitle from '@components/molecules/TagTitle';
@@ -26,6 +27,13 @@ const Introduce: React.FC<IntroduceProps> = () => (
                 <br />I am a mom to a beautiful 2 y.o. daughter who already loves attending business meetings with me.
                 Also, a big part of my life is Netrix - a design agency which I run together with my husband.
               </Typography>
+              <div className='mt-4'>
+                <ButtonDot>
+                  <Typography type='p' className='font-austin font-medium italic sm:text-xl text-lg z-1 text-gray-800'>
+                    Detail
+                  </Typography>
+                </ButtonDot>
+              </div>
             </div>
           </div>
         </div>
