@@ -17,28 +17,28 @@ const InputRef: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       case 'lg':
         return 'h-[48px] sm:h-[56px]';
       case 'md':
-        return 'h-[48px] sm:h-[48px]';
+        return 'h-[40px] sm:h-[48px]';
       default:
         return 'h-[40px]';
     }
   }, [sizes]);
 
   return (
-    <div className='relative'>
-      <input
-        ref={ref}
-        type={type}
-        className={clsx(
-          'reset-input block text-gray-800 bg-transparent border !border-gray-700 placeholder:text-gray-600 transition-all w-full rounded-full px-3 focus:placeholder:text-gray-500/75 focus:border-blue-600',
-          error && '!text-red-500 !border-red-500',
-          sizeStyle,
-          disabled && 'cursor-not-allowed opacity-50',
-          className,
-        )}
-        disabled={disabled}
-        {...props}
-      />
-    </div>
+    <input
+      ref={ref}
+      type={type}
+      className={clsx(
+        'reset-input block bg-transparent border transition-all w-full rounded-full px-3 focus:ring-0',
+        error
+          ? 'text-red-500 border-red-500 focus:border-red-600 placeholder:text-red-500/50 '
+          : 'text-gray-800 border-gray-700 focus:border-blue-600 placeholder:text-gray-600 focus:placeholder:text-gray-500/75',
+        sizeStyle,
+        disabled && 'cursor-not-allowed opacity-50',
+        className,
+      )}
+      disabled={disabled}
+      {...props}
+    />
   );
 };
 const Input = forwardRef(InputRef);

@@ -204,7 +204,6 @@ module.exports = {
       });
       addUtilities({
         '.reset-input': {
-          'border-color': 'transparent',
           outline: 'none',
           appearance: 'none',
         },

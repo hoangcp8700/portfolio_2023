@@ -13,13 +13,19 @@ export default {
       },
       defaultValue: false,
     },
-    // size: {
-    //   control: {
-    //     type: 'select',
-    //     options: ['default', 'md', 'lg'],
-    //   },
-    //   defaultValue: 'default',
-    // },
+    error: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
+    sizes: {
+      control: {
+        type: 'select',
+        options: ['md', 'lg'],
+      },
+      defaultValue: '',
+    },
   },
 } as ComponentMeta<typeof Input>;
 
