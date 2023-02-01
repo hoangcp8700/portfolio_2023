@@ -25,14 +25,14 @@ const InputRef: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   }, [sizes]);
 
   return (
-    <div className={clsx('a-input relative')}>
+    <div className='relative'>
       <input
         ref={ref}
         type={type}
         className={clsx(
           'reset-input relative block bg-transparent border transition-all w-full rounded-full px-3 focus:ring-0',
           error
-            ? 'text-red-600 border-red-500 focus:border-red-600 placeholder:text-red-400'
+            ? 'text-red-600 border-red-500 focus:border-red-600 placeholder:text-red-400 pr-10'
             : 'text-gray-800 border-gray-700 focus:border-blue-600 placeholder:text-gray-600 focus:placeholder:text-gray-500/75',
           sizeStyle,
           disabled && 'cursor-not-allowed opacity-50',

@@ -51,3 +51,7 @@ ol {
   margin: 0;
   padding: 0;
 }
+
+textarea::-webkit-scrollbar {
+  display: none;
+}

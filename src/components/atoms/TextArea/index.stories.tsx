@@ -7,18 +7,6 @@ export default {
   title: 'Components/atoms/TextArea',
   component: TextArea,
   argTypes: {
-    label: {
-      control: {
-        type: 'text',
-      },
-      defaultValue: 'Label',
-    },
-    labelClass: {
-      control: {
-        type: 'text',
-      },
-      defaultValue: 'Label',
-    },
     rows: {
       control: {
         type: 'text',
@@ -28,22 +16,19 @@ export default {
     disabled: {
       control: {
         type: 'boolean',
-        options: [false, true],
       },
-      defaultValue: false,
     },
-    required: {
+    error: {
       control: {
         type: 'boolean',
-        options: [false, true],
       },
-      defaultValue: false,
     },
-    placeholder: {
+    variants: {
       control: {
-        type: 'text',
+        type: 'select',
+        options: ['', 'contained', 'rounded'],
       },
-      defaultValue: 'Dummy text',
+      defaultValue: '',
     },
   },
 } as ComponentMeta<typeof TextArea>;
@@ -51,4 +36,7 @@ export default {
 const Template: ComponentStory<typeof TextArea> = (args) => <TextArea {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  placeholder: 'textarea placeholder',
+  onShowError: (value) => console.log('value', value),
+};

@@ -7,8 +7,8 @@
 
 @mixin scroll-bars(
   $size: 4,
-  $thumb-color: $black,
-  $track-color: $platinum,
+  $thumb-color: #000,
+  $track-color: #888,
   $border-radius-track: 8,
   $border-radius-thumb: 8,
   $border-thumb: 2
