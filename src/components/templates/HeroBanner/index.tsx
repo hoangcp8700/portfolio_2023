@@ -14,19 +14,23 @@ interface HeroBannerProps {
 const HeroBanner: React.FC<HeroBannerProps> = ({ title, title2, description }) => {
   const scrollState = useScrollEvent();
 
-  const scrollBallStyle = React.useMemo(
-    () =>
-      scrollState.scrollY > 100
-        ? `translate3d(${scrollState.scrollY * 2}px,${scrollState.scrollY * 0.3}px,0px) rotate(${
-            scrollState.scrollY * 0.5
-          }deg)`
-        : 'translate(0px,0px)',
-    [scrollState.scrollY],
-  );
+  const scrollBallStyle = React.useMemo(() => {
+    if (scrollState.scrollY < 100) return '';
+
+    if (scrollState.scrollDirection === 'up' && scrollState.scrollY > 250) {
+      return `translate3d(${scrollState.scrollY * 4.25}px,${scrollState.scrollY * 0.3}px,0px) rotate(${
+        scrollState.scrollY * 0.8
+      }deg)`;
+    }
+
+    return `translate3d(${scrollState.scrollY * 2}px,${scrollState.scrollY * 0.3}px,0px) rotate(${
+      scrollState.scrollY * 0.5
+    }deg)`;
+  }, [scrollState]);
 
   return (
-    <div className='t-heroBanner' style={{ minHeight: '200vh' }}>
-      <Container>
+    <div className='t-heroBanner'>
+      <Container noPaddingTopBottom noPaddingMobile>
         <div className='t-heroBanner_title sm:h-[40vh] h-[30vh] relative'>
           <div className='absolute top-[80%] xs:left-[50%] left-0 xs:translate-x-[-50%] translate-y-[-50%] z-2'>
             <Typography type='p' className='xs:text-8xl sm:text-9xl text-7xl font-medium font-austin italic'>
@@ -48,11 +52,11 @@ const HeroBanner: React.FC<HeroBannerProps> = ({ title, title2, description }) =
         </div>
 
         <div
-          style={{ transform: `rotate(${scrollState.scrollY > 100 ? 15 : 0}deg)` }}
-          className='t-heroBanner_des sm:mt-[-80px] mt-[-40px] sm:max-w-[88%] rounded-b-full aspect-w-2 aspect-h-1 bg-slate-200 mx-auto duration-2000 ease-in-out overflow-hidden'
+          style={{ transform: `rotate(${scrollState.scrollY > 100 && scrollState.scrollY < 350 ? 15 : 0}deg)` }}
+          className='t-heroBanner_des sm:mt-[-80px] mt-[-40px] w-[88%] rounded-b-full bg-slate-200 mx-auto duration-2000 ease-in-out overflow-hidden sm:pt-[150px] sm:pb-[300px] pt-[100px] pb-[200px]'
         >
-          <div className='w-full sm:max-w-[700px] mx-auto sm:pt-[160px] pt-[80px] px-10'>
-            <Typography type='p' className='font-austin sm:text-5xl text-xl text-center italic text-gray-800'>
+          <div className='w-[80%] mx-auto'>
+            <Typography type='p' className='font-austin sm:text-5xl text-4xl text-center italic text-gray-800'>
               {description}
             </Typography>
           </div>
