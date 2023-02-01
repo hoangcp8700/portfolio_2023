@@ -156,12 +156,20 @@ module.exports = {
         'spinner-loading': 'spinnerLoading 1.25s infinite backwards',
         skeleton: 'skeleton 1.4s ease infinite',
         tick: 'tick 300ms ease-in-out',
+        scale: 'tick 300ms ease-in-out 300ms alternate both',
+        slideToRight: 'slideToRight 500ms ease-in-out',
       },
       keyframes: {
         tick: {
           '0%': { transform: 'scale(0)' },
           '50%': { transform: 'scale(1.3)' },
           '100%': { transform: 'scale(1)' },
+        },
+        slideToRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%': { transform: 'translateX(50%)' },
+          '75%': { transform: 'translateX(-10%)' },
+          '100%': { transform: 'translateX(0)' },
         },
         spinnerLoading: {
           '0%': { transform: 'rotate(0deg) translateX(-120%)' },
@@ -222,11 +230,6 @@ module.exports = {
       addVariant('not-last', '&:not(:last-child)');
       addVariant('not-first', '&:not(:first-child)');
       addVariant('not-disabled', '&:not(:disabled)');
-      // addVariant(
-      //   'reset-input',
-      //   'outline-none border-transparent focus:border-transparent focus:outline-none focus:ring-0 appearance-none',
-      // );
-      // addVariant('reset-button', 'border-none outline-none border-transparent focus:outline-none appearance-none');
     }),
   ],
 };

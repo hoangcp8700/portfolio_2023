@@ -38,4 +38,5 @@ const Template: ComponentStory<typeof Input> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   placeholder: 'input placeholder',
+  onShowError: (value) => console.log('value', value),
 };

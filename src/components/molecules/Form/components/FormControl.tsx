@@ -30,7 +30,7 @@ const FormControl: React.FC<FormControlProps> = ({
         render={({ field, fieldState, formState }) => (
           <>
             {render({ field, fieldState, formState })}
-            {showError && <FieldError name={name} />}
+            {showError && <FieldError name={name} className='animate-slideToRight' />}
           </>
         )}
       />

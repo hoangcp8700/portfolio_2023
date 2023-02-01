@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { withProperties } from '@utils/component';
-import React, { forwardRef, useEffect, useId } from 'react';
-import { FormProvider } from 'react-hook-form';
+import React, { forwardRef, useEffect, useId, useState } from 'react';
+import { FormProvider, useFormContext } from 'react-hook-form';
 import { useFormDirtyContext } from '@context/DirtyFormContext';
 import useHasChanged from '@hooks/useHashChanged';
 import Input, { InputProps } from '@components/atoms/Input';
@@ -105,19 +105,27 @@ const FormProviderRef: React.ForwardRefRenderFunction<HTMLFormElement, FormProvi
 
 const Form = forwardRef(FormProviderRef);
 
-export const InputForm: React.FC<InputFormProps> = ({ label, className, name, required, inputProps }): JSX.Element => (
-  <FormControl
-    name={name}
-    className={clsx('mb-2', className)}
-    render={({ field }) => (
-      <>
-        <FieldLabel name={name} label={label} required={required} />
-        <Input {...field} {...inputProps} id={name} />
-      </>
-    )}
-  />
-);
+export const InputForm: React.FC<InputFormProps> = ({ label, className, name, required, ...props }): JSX.Element => {
+  const {
+    formState: { errors },
+  } = useFormContext();
 
+  const [showError, setShowError] = useState(false);
+
+  return (
+    <FormControl
+      showError={showError}
+      name={name}
+      className={clsx('mb-4 w-full', className)}
+      render={({ field }) => (
+        <>
+          <FieldLabel name={name} label={label} required={required} />
+          <Input {...field} {...props} id={name} error={errors[name]} onShowError={(value) => setShowError(value)} />
+        </>
+      )}
+    />
+  );
+};
 export default withProperties(Form, {
   FieldError,
   FieldLabel,
@@ -127,10 +135,8 @@ export default withProperties(Form, {
   InputForm,
 });
 
-export interface InputFormProps {
+export interface InputFormProps extends InputProps {
   label?: string;
   name: string;
   required?: boolean;
-  className?: string;
-  inputProps?: InputProps;
 }
