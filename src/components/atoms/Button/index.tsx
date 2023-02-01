@@ -6,6 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   children?: React.ReactNode;
   size?: 'md' | 'lg';
   variants?: 'default' | 'primary' | 'secondary' | 'outlined' | 'contained';
+  radius?: 'md' | 'lg' | 'full';
   fullWidth?: boolean;
 }
 
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   fullWidth,
   className,
+  radius = 'lg',
   onClick,
   ...props
 }) => {
@@ -27,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       case 'default':
         return 'bg-gray-200 shadow-primary hover:shadow-primaryInner';
       case 'primary':
-        return 'bg-blue-500 hocus:bg-blue-700 active:bg-blue-800';
+        return 'bg-blue-500 text-white hocus:bg-blue-700 active:bg-blue-800';
       case 'secondary':
         return 'bg-red-500 hocus:bg-red-700  active:bg-red-800';
       case 'outlined':
@@ -50,16 +52,31 @@ const Button: React.FC<ButtonProps> = ({
     }
   }, [size]);
 
+  const radiusStyle = useMemo(() => {
+    switch (radius) {
+      case 'lg':
+        return 'rounded-xl';
+      case 'md':
+        return 'rounded-lg';
+      case 'full':
+        return 'rounded-full';
+      default:
+        return '';
+    }
+  }, [radius]);
+
   return (
     <button
       type={type || 'button'}
       className={clsx(
-        'reset-button relative flex adjust-flex-center overflow-hidden transition-all px-5 sm:px-8 rounded-xl  focus:ring-0',
+        'reset-button relative flex adjust-flex-center overflow-hidden transition-all px-5 sm:px-8 focus:ring-0',
         animate && 'animate-tick',
+        radiusStyle,
         variantStyle,
         sizeStyle,
         fullWidth && 'w-full',
-        disabled && 'bg-gray-300 shadow-inner text-gray-500 cursor-not-allowed opacity-70 hover:!bg-gray-700',
+        disabled &&
+          'bg-gray-300 shadow-inner !text-gray-800 cursor-not-allowed opacity-70 hover:!bg-gray-700 hover:!text-gray-400',
         className,
       )}
       onClick={(e) => {
